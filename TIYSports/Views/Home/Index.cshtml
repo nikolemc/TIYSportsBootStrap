@@ -1,4 +1,6 @@
-﻿@{
+﻿@model TIYSports.ViewModels.SportsHomePage
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -15,18 +17,21 @@
     <div class="carousel-inner">
         <div class="item active">
             <div class="row">
-                <div class="col-xs-3"><a href="#"><img src="~/images/cohort7.jpg" class="img-responsive"></a></div>
-                <div class="col-xs-3"><a href="#"><img src="~/images/baseball1.jpg" class="img-responsive"></a></div>
-                <div class="col-xs-3"><a href="#"><img src="~/images/basketball1.jpg" class="img-responsive"></a></div>
-                <div class="col-xs-3"><a href="#"><img src="~/images/quidditch1.jpg" class="img-responsive"></a></div>
+                @for (int i = 0; i < 4; i++)
+                {
+                    <div class="col-xs-3"><a href="#"><img src="@Model.Sports[i].SportImg" class="img-responsive"></a></div>
+                }
             </div>
+
+
+
         </div>
         <div class="item">
             <div class="row">
-                <div class="col-xs-3"><a href="#"><img src="~/images/golf1.jpg" class="img-responsive"></a></div>
-                <div class="col-xs-3"><a href="#"><img src="~/images/football1.jpg" class="img-responsive"></a></div>
-                <div class="col-xs-3"><a href="#"><img src="~/images/swimming1.jpg" class="img-responsive"></a></div>
-                <div class="col-xs-3"><a href="#"><img src="~/images/pingpong1.jpg" class="img-responsive"></a></div>
+                @for (int i = 4; i < 8; i++)
+                {
+                    <div class="col-xs-3"><a href="#"><img src="@Model.Sports[i].SportImg" class="img-responsive"></a></div>
+                }
             </div>
         </div>
     </div>
@@ -167,7 +172,6 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th class="col-check"></th>
                                 <th>#</th>
                                 <th>Hometeam</th>
                                 <th>Awayteam</th>
@@ -176,21 +180,18 @@
                         </thead>
                         <tbody>
                             <tr class="success">
-                                <td class="col-check"><input type="checkbox" class="form-check-input"></td>
                                 <td>1</td>
                                 <td>Tampa Bay Dynamos</td>
                                 <td>Florida Freckles</td>
                                 <td>2 - 3</td>
                             </tr>
                             <tr class="text-muted">
-                                <td class="col-check"><input type="checkbox" class="form-check-input"></td>
                                 <td>2</td>
                                 <td>Florida Grassroots Table Tennis</td>
                                 <td>St. Augestine Ping-Pongers</td>
                                 <td>88 - 66</td>
                             </tr>
                             <tr class="text-muted">
-                                <td class="col-check"><input type="checkbox" class="form-check-input"></td>
                                 <td>3</td>
                                 <td>St Pete Splashers</td>
                                 <td>Florida Flippers</td>
